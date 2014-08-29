@@ -1,0 +1,387 @@
+@import "bootstrap.css";
+@import "lib.scss"; 
+@import "fonts.scss";
+ 
+
+
+// Generating sprites
+$icon-sprite-base-class: '.icon';
+$icon-layout: horizontal;
+$icon-sprite-dimensions: true;
+$icon-spacing: 100px;
+$icon-style-display: inline-block;
+$icon-dimensions: true;
+
+
+
+@import "compass"; 
+@import "icon/*.png";
+@include all-icon-sprites(true); 
+.icon{
+	display: inline-block;
+}
+
+// Define general styling
+/* Main elements */ 
+
+body { width: 100%; max-width: 100%; font-family: 'sourcesanspro-regular-webfont', Arial;   }
+html.ie8 body{ min-width: 990px; }
+// html.ie9 body{ min-width: 990px; }
+
+/* Typographic */
+h1,h2,h3,h4,h5,h6 {line-height: 120%; text-align: center; color: inherit; max-width: 100%; font-weight: normal; font-family: 'Museo_Slab_900'; color: inherit; margin-bottom: 10px; } 
+h1 {font-size: 3.35em; line-height: 107%; margin-bottom: 0; }
+h2 {font-size: 2.36em; margin-bottom: 64px; }
+h3 {font-size: 2.9em; margin-bottom: 14px; }
+h5 {font-size: 1.55em;  }
+h4 {font-size: 1.3em;  } 
+h6 {font-size: 1.2em;   } 
+strong{font-family: 'Museo_Slab_900'; }
+ul li, p, dd, dt, cite, address {line-height: 146%; margin-bottom: 17px; padding: 0; font-size: 1.46em; color: inherit; max-width: 100%; }
+.outlined, .outlined div{ outline: 1px solid red; }
+.container {margin: auto; max-width: 960px; box-sizing: border-box; 
+	// padding-left: 11px;
+	// padding-right: 11px;
+	// border-right: 1px solid red; border-left: 1px solid red; 
+}
+.container-fluid { box-sizing: border-box; } 
+.btn{white-space: normal;  } 
+
+
+
+.btn:hover, .btn:focus{
+	box-shadow: 0 0 15px rgba(0,0,0, .5) !important;
+}
+
+.img-responsive{
+	margin: auto;
+	display: block;
+}
+
+
+// Navbar
+.navbar-default{
+	margin: 0;
+	padding: 8px 0px 0px 0px;
+	border: 0;
+	box-shadow: none; 
+	position: relative;
+	background: url(../img/nav-bottom-bgd.gif) repeat-x bottom center #f6f8f7;
+	&:before{
+		content: '';
+		position: absolute;
+		height: 11px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 10;
+		background: url(../img/top-navbar-bgd.gif) repeat-x center;
+	}
+	.navbar-toggle{
+		margin-top: 18px;
+	}
+	.navbar-main-nav{
+		li{
+			margin: 0;
+			line-height: 100%;
+			padding: 0;
+			a{
+				padding: 0px 16px 0px 18px;
+				color: #5f5f5f;
+				height: 84px;
+				line-height: 84px;
+				background: url(../img/separator.gif) no-repeat right center;
+				@include media-tablet {
+					padding: 5px 16px 5px 16px; 
+					height: auto;
+					line-height: 100%; 					
+				}
+			}
+		}
+	}
+	.navbar-right{
+		li{
+			a{
+				padding: 15px 7px; 	
+				@include media-tablet {
+					padding: 10px 25px;
+				}	 
+			}
+			.icon-cart_img{
+				display: inline-block;
+				vertical-align: middle;
+			}
+		}
+	}
+}
+
+
+
+
+// Page header
+.page-header{
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+.page-header-gray{
+	background: #f9f8f7;
+	padding: 30px 0 100px 0;
+	h3{
+		text-align: left;
+	}
+	p{
+		font-size: 1.3em;
+	}
+}
+.page-header-green{
+	position: relative;
+	z-index: 100;
+	margin-top: -80px;
+	.container{
+		padding-left: 0;
+		padding-right: 0;
+	}
+	&:after{
+		content: '';
+		@include icon-sprite(green-tick);
+		position: absolute;
+		bottom: -28px;
+		left: 50%;
+		margin-left: -37px;
+		z-index: 10; 
+	}
+	.well-green{
+		color: #fff;
+		padding: 13px 59px;
+		padding-bottom: 38px;
+		@include media-tablet {
+			padding: 6px 15px 40px 15px; 
+			margin-left: 10px;
+			margin-right: 10px;
+		}
+		background: #02b37d;
+		h3{
+			margin-bottom: 24px;
+		}
+		p{
+			font-size: 1.3em;
+			line-height: 126%;
+			margin-bottom: 19px;
+		} 
+	}
+}
+
+
+// Panels
+.panels{
+	padding: 38px 0 20px 0;
+	.col-xs-4{
+		@include media-tablet {
+			// padding: 0; 
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+	}
+	.panel-default{
+		border: 1px solid #dddfde;
+		.panel-heading{
+			text-align: center;
+			color: #fff;
+			background: #3b4557;
+			padding: 7px 10px;
+			h4{
+				font-size: 2em;
+				padding: 0;
+				margin: 8px 0 30px 0 ;
+				line-height: 100%;
+				sup{
+					font-family: 'sourcesanspro-regular-webfont', Arial;
+					font-size: .46em;
+					position: relative;
+					top: -13px;
+					right: 4px;	
+				}
+			}
+			p.price{
+				font-size: 1.86em;
+				margin-bottom: 11px;
+				line-height: 100%;
+			}
+		}
+		.panel-body{
+			padding: 10px 8px;
+			min-height: 857px;
+			@include media-tablet { min-height: 1px; }
+			.img-responsive{
+
+			}
+			.btn-warning{
+				margin: 30px auto 20px auto;
+				max-width: 80%;
+			}
+			.risk-holder{
+				font-size: 1em;
+				text-transform: uppercase;
+				color: #838994;
+				border-top: 1px dotted #caccd1;
+				border-bottom: 1px dotted #caccd1;
+				text-align: center;
+				padding: 15px 0; 
+				margin: 20px 29px;
+				line-height: 125%;
+				font-family: 'Museo_Slab_700';
+			}
+			.with-green-arrows{
+				margin: 25px 10px;
+				padding: 0;
+				list-style: none;
+				font-size: .67em;
+				li{ 
+					padding-left: 58px;
+					position: relative;
+					margin-bottom: 9px;
+					&:before{
+						content: '';
+						position: absolute;
+						top: 4px;
+						left: 30px;
+						color: #3d3d3d;
+						@include icon-sprite(green-pointer);
+					}
+				}
+			}
+		}
+	}
+
+}
+
+
+footer{ 
+	color: #767676;
+	padding: 50px 0 80px 0;
+	@include media-tablet {
+		padding: 15px 0 20px 0;
+	}
+	.col-xs-4{
+		text-align: center;
+		@include media-tablet {
+			padding: 10px 15px;
+		}
+	}
+	.copyright{
+		font-size: 1.2em;
+		margin: 5px 0px 0px 0px ;
+		line-height: 100%;
+	}
+	.nav-usual{
+		text-align: center; 
+		font-size: 1.2em; 
+			a{
+				display: inline-block;
+				margin: 0 5px;
+				padding: 0;
+				line-height: 100%;
+				color: #767676;
+			} 
+  	}
+	.nav-social{
+		text-align: center; 
+			a{
+				display: inline-block;
+				vertical-align: middle;
+				position: relative;
+				margin: -20px 0px 0px 0px ;
+				@include media-tablet {margin-top: 0; }
+				padding: 0;
+				&:hover{
+					opacity: .7;
+				}
+			} 
+	} 
+
+}
+
+
+// Media queries
+@include media-netbook {
+	
+}
+
+@include media-tablet {
+	
+	br{display: none;}
+	/* Grid */
+	.row {
+		margin: 0;
+	}
+	.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+		float: none;
+		width: 100%;
+	} 
+	h1,h2,h3,h4,p{ word-wrap: break-word; }
+}
+
+
+@include media-smartphone{
+	
+
+	// h1 {font-size: 2.16em;  }
+	// h2 {font-size: 1.8em; }
+	// h3 {font-size: 1.6em; }
+	// h4 {font-size: 1.2em; font-family: $sans-light; color: #838383; line-height: 154%; }
+	// h5 {font-size: 1.1em;  } 
+	// h6 {font-size: 1.2em;   }   
+	p{
+		word-wrap: break-word;
+	}
+	 
+ 
+}
+
+a:hover,  
+a:focus,
+a,
+i, 
+.btn, 
+.btn:hover, 
+.btn:focus 
+{ 
+    transition: all 0.8s ease;
+    -webkit-transition: all 0.8s ease;
+    -moz-transition: all 0.8s ease;
+    -o-transition: all 0.8s ease;
+}
+
+
+.btn-warning{
+	color: #fff;
+	background: #ff9e39;
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmOWUzOSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUyJSIgc3RvcC1jb2xvcj0iI2ZmODIyNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZjcwMjEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top,  #ff9e39 0%, #ff8226 52%, #ff7021 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff9e39), color-stop(52%,#ff8226), color-stop(100%,#ff7021));
+background: -webkit-linear-gradient(top,  #ff9e39 0%,#ff8226 52%,#ff7021 100%);
+background: -o-linear-gradient(top,  #ff9e39 0%,#ff8226 52%,#ff7021 100%);
+background: -ms-linear-gradient(top,  #ff9e39 0%,#ff8226 52%,#ff7021 100%);
+background: linear-gradient(to bottom,  #ff9e39 0%,#ff8226 52%,#ff7021 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9e39', endColorstr='#ff7021',GradientType=0 );
+
+	padding: 19px 15px;
+	line-height: 100%;
+	height: auto;
+	display: block;
+	width: 100%; 
+	max-width: 100%;
+	text-shadow: 2px 3px 3px #d1661e;
+	line-height: 100%;
+	font-size: 1.45em;
+	border: 1px solid #b84000; 
+	font-family: 'Museo_Slab_900'; 
+	@include media-tablet { max-width: 100% !important; width: 100%; }
+	html.ie9 & {
+		filter: none !important;
+	}
+	html.ie8 & {
+		background: #ff9e39 !important;
+	}
+}
